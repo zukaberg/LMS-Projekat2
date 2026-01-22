@@ -22,9 +22,9 @@ sa tabovima za pregled profila, financeapp te my trackers.
 -Struktura projekta-
 
 .forms gdje su SwingUI paneli
-.dao (data access object) klase za rad sa bazom
+.dao (data access object) klase za rad sa bazom, connection string
 .models gdje su model klase
-.utils - pomoćne klase (connection string, avatar util)
+.utils - pomoćne klase (theme, avatar util)
 
 Na svim trackerima i formama imamo implementirane CRUD operacije za 100% upravljanje nad našim podacima i trackerima.
 
