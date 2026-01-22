@@ -5,10 +5,10 @@ import org.bson.types.ObjectId;
 public class UserPreferences {
     private ObjectId id;
     private String userId;
-    private boolean darkMode; // true = dark, false = light
+    private boolean darkMode;
 
     public UserPreferences() {
-        this.darkMode = false; // Default je light mode
+        this.darkMode = false;
     }
 
     public UserPreferences(String userId, boolean darkMode) {
@@ -16,7 +16,6 @@ public class UserPreferences {
         this.darkMode = darkMode;
     }
 
-    // Getters & Setters
     public ObjectId getId() { return id; }
     public void setId(ObjectId id) { this.id = id; }
 

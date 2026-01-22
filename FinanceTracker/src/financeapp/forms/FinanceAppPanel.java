@@ -131,8 +131,6 @@ public class FinanceAppPanel extends JPanel {
         transactionTable = new JTable(tableModel);
         transactionTable.setFont(new Font("Arial", Font.PLAIN, 13));
         transactionTable.setRowHeight(30);
-
-        // Sakrij ID kolonu
         transactionTable.getColumnModel().getColumn(0).setMinWidth(0);
         transactionTable.getColumnModel().getColumn(0).setMaxWidth(0);
         transactionTable.getColumnModel().getColumn(0).setWidth(0);

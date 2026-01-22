@@ -189,8 +189,6 @@ public class StudyPlannerPanel extends JPanel {
         studyTable = new JTable(tableModel);
         studyTable.setFont(new Font("Arial", Font.PLAIN, 13));
         studyTable.setRowHeight(30);
-
-        // Hide ID column
         studyTable.getColumnModel().getColumn(0).setMinWidth(0);
         studyTable.getColumnModel().getColumn(0).setMaxWidth(0);
         studyTable.getColumnModel().getColumn(0).setWidth(0);

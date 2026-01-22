@@ -319,8 +319,6 @@ public class SleepTrackerPanel extends JPanel {
         sleepTable = new JTable(tableModel);
         sleepTable.setFont(new Font("Arial", Font.PLAIN, 13));
         sleepTable.setRowHeight(30);
-
-        // Hide ID column
         sleepTable.getColumnModel().getColumn(0).setMinWidth(0);
         sleepTable.getColumnModel().getColumn(0).setMaxWidth(0);
         sleepTable.getColumnModel().getColumn(0).setWidth(0);
@@ -431,9 +429,6 @@ public class SleepTrackerPanel extends JPanel {
         }
     }
 
-
-
-
     private void editSelectedEntry() {
         int selectedRow = sleepTable.getSelectedRow();
 
@@ -500,7 +495,7 @@ public class SleepTrackerPanel extends JPanel {
         );
 
         if (confirm == JOptionPane.YES_OPTION) {
-            String id = (String) tableModel.getValueAt(selectedRow, 0); // String umjesto int
+            String id = (String) tableModel.getValueAt(selectedRow, 0);
 
             dao.deleteSleepEntry(id);
 
@@ -518,7 +513,7 @@ public class SleepTrackerPanel extends JPanel {
 
         for (SleepEntry e : entries) {
             tableModel.addRow(new Object[]{
-                    e.getId().toString(), // ObjectId.toString()
+                    e.getId().toString(),
                     e.getDate(),
                     String.format("%.1f h", e.getHours()),
                     e.getQuality()

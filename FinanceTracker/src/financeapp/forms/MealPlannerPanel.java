@@ -77,19 +77,15 @@ public class MealPlannerPanel extends JPanel {
         panel.setBackground(Color.WHITE);
         panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));
 
-        // Calories
         JPanel caloriesCard = createStatCard("Kalorije danas", "0 kcal", new Color(231, 76, 60));
         todayCaloriesLabel = (JLabel) ((JPanel)caloriesCard.getComponent(0)).getComponent(2);
 
-        // Protein
         JPanel proteinCard = createStatCard("Proteini", "0.0 g", new Color(52, 152, 219));
         todayProteinLabel = (JLabel) ((JPanel)proteinCard.getComponent(0)).getComponent(2);
 
-        // Carbs
         JPanel carbsCard = createStatCard("Ugljikohidrati", "0.0 g", new Color(230, 126, 34));
         todayCarbsLabel = (JLabel) ((JPanel)carbsCard.getComponent(0)).getComponent(2);
 
-        // Fats
         JPanel fatsCard = createStatCard("Masti", "0.0 g", new Color(46, 204, 113));
         todayFatsLabel = (JLabel) ((JPanel)fatsCard.getComponent(0)).getComponent(2);
 
@@ -212,8 +208,6 @@ public class MealPlannerPanel extends JPanel {
         mealTable = new JTable(tableModel);
         mealTable.setFont(new Font("Arial", Font.PLAIN, 13));
         mealTable.setRowHeight(30);
-
-        // Hide ID column
         mealTable.getColumnModel().getColumn(0).setMinWidth(0);
         mealTable.getColumnModel().getColumn(0).setMaxWidth(0);
         mealTable.getColumnModel().getColumn(0).setWidth(0);

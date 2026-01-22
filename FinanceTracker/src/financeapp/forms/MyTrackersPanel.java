@@ -38,7 +38,7 @@ public class MyTrackersPanel extends JPanel {
         mainContent.setBackground(Color.WHITE);
         mainContent.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // Sidebar - sačuvaj referencu
+        // Sidebar
         sidebar = createSidebar();
         mainContent.add(sidebar, BorderLayout.WEST);
 
@@ -97,7 +97,7 @@ public class MyTrackersPanel extends JPanel {
         btn.setFocusPainted(false);
         btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        // Dark mode theme
+        //DM
         btn.setBackground(ThemeManager.getInputBackgroundColor());
         btn.setForeground(ThemeManager.getForegroundColor());
         btn.setBorder(BorderFactory.createCompoundBorder(
@@ -120,7 +120,7 @@ public class MyTrackersPanel extends JPanel {
         return btn;
     }
 
-    // PUBLIC metoda za refresh theme
+    //Refrsh theme
     public void refreshTheme() {
         if (sidebar != null) {
             refreshSidebar(sidebar);

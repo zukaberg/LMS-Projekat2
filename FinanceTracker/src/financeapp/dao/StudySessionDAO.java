@@ -95,14 +95,12 @@ public class StudySessionDAO {
 
     public int getTotalDaysStudied(String userId) {
         ArrayList<StudySession> sessions = getStudyEntriesByUserId(userId);
-
-        // Uzmi samo JEDINSTVENE datume
         java.util.Set<String> uniqueDates = new java.util.HashSet<>();
 
         for (StudySession session : sessions) {
             uniqueDates.add(session.getDate());
         }
 
-        return uniqueDates.size();  // Broj različitih dana
+        return uniqueDates.size();
     }
 }

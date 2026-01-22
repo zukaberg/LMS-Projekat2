@@ -6,21 +6,21 @@ import java.awt.*;
 
 public class ThemeManager {
 
-    // Light mode colors
+    // Light mode
     public static final Color LIGHT_BG = Color.WHITE;
     public static final Color LIGHT_FG = Color.BLACK;
     public static final Color LIGHT_PANEL = new Color(236, 240, 241);
     public static final Color LIGHT_BORDER = new Color(220, 220, 220);
     public static final Color LIGHT_INPUT_BG = Color.WHITE;
 
-    // Dark mode colors
+    // Dark mode
     public static final Color DARK_BG = new Color(30, 30, 30);
     public static final Color DARK_FG = new Color(220, 220, 220);
     public static final Color DARK_PANEL = new Color(45, 45, 45);
     public static final Color DARK_BORDER = new Color(60, 60, 60);
     public static final Color DARK_INPUT_BG = new Color(50, 50, 50);
 
-    // Accent colors (isti za oba moda)
+    // Accent colors
     public static final Color ACCENT_BLUE = new Color(52, 152, 219);
     public static final Color ACCENT_GREEN = new Color(46, 204, 113);
     public static final Color ACCENT_RED = new Color(231, 76, 60);
@@ -61,7 +61,7 @@ public class ThemeManager {
         return darkMode ? DARK_INPUT_BG : LIGHT_INPUT_BG;
     }
 
-    // Primijeni temu na panel
+    // Theme on panel - apply
     public static void applyTheme(JPanel panel) {
         panel.setBackground(getBackgroundColor());
         panel.setForeground(getForegroundColor());
@@ -71,12 +71,11 @@ public class ThemeManager {
         }
     }
 
-    // Primijeni temu na komponentu
+    // Theme on component - apply
     public static void applyThemeToComponent(Component comp) {
         if (comp instanceof JPanel) {
             JPanel p = (JPanel) comp;
 
-            // Ne mijenjaj boju panela ako ima custom boju (npr. kartice)
             Color currentBg = p.getBackground();
             if (currentBg.equals(Color.WHITE) || currentBg.equals(new Color(236, 240, 241))
                     || currentBg.equals(new Color(30, 30, 30)) || currentBg.equals(new Color(45, 45, 45))) {
@@ -85,7 +84,6 @@ public class ThemeManager {
 
             p.setForeground(getForegroundColor());
 
-            // Ažuriraj TitledBorder ako postoji
             if (p.getBorder() instanceof javax.swing.border.CompoundBorder) {
                 javax.swing.border.CompoundBorder compoundBorder = (javax.swing.border.CompoundBorder) p.getBorder();
 
@@ -99,16 +97,15 @@ public class ThemeManager {
                 titledBorder.setTitleColor(getTitleColor());
                 titledBorder.setBorder(BorderFactory.createLineBorder(getBorderColor()));
             }
-            // Rekurzivno primijeni na sve child komponente
+
             for (Component child : p.getComponents()) {
                 applyThemeToComponent(child);
             }
         } else if (comp instanceof JLabel) {
             JLabel label = (JLabel) comp;
-            // Promijeni SVE labele osim onih sa akcent bojama
+
             Color currentFg = label.getForeground();
 
-            // Lista akcent boja koje NE mijenjamo
             boolean isAccentColor =
                     currentFg.equals(ACCENT_BLUE) ||
                             currentFg.equals(ACCENT_GREEN) ||
@@ -121,14 +118,12 @@ public class ThemeManager {
                             currentFg.equals(new Color(230, 126, 34)) ||
                             currentFg.equals(new Color(155, 89, 182));
 
-            // Ako NIJE akcent boja, promijeni je
             if (!isAccentColor) {
                 label.setForeground(getForegroundColor());
             }
 
         } else if (comp instanceof JButton) {
             JButton btn = (JButton) comp;
-            // Primijeni samo na običane dugmiće, ne na dugmiće sa akcent bojama
             Color currentBg = btn.getBackground();
             if (currentBg.equals(Color.WHITE) || currentBg.equals(new Color(238, 238, 238))) {
                 btn.setBackground(getPanelColor());
@@ -192,7 +187,7 @@ public class ThemeManager {
         }
     }
 
-    // Primijeni temu na cijeli frame
+    // Apply theme on whole frame
     public static void applyTheme(JFrame frame) {
         Container contentPane = frame.getContentPane();
         applyThemeToContainer(contentPane);

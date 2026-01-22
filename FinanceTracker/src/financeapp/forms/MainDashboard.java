@@ -18,14 +18,9 @@ public class MainDashboard extends JFrame {
     public MainDashboard(User user) {
         this.currentUser = user;
         this.preferencesDAO = new UserPreferencesDAO();
-
-        // Učitaj preferences i primijeni temu
         UserPreferences prefs = preferencesDAO.getPreferences(user.getId().toString());
         ThemeManager.setDarkMode(prefs.isDarkMode());
-
         setupUI();
-
-        // Primijeni temu nakon što je UI kreiran - rekurzivno na sve
         SwingUtilities.invokeLater(() -> {
             ThemeManager.applyTheme(this);
             revalidate();
@@ -161,11 +156,10 @@ public class MainDashboard extends JFrame {
         // Ažuriraj dugme text
         darkModeBtn.setText(ThemeManager.isDarkMode() ? "Light Mode" : "Dark Mode");
 
-        // Primijeni temu rekurzivno
+        // Primijeni temu
         SwingUtilities.invokeLater(() -> {
             ThemeManager.applyTheme(this);
 
-            // Posebno refresh-uj MyTrackersPanel
             for (Component comp : contentPanel.getComponents()) {
                 if (comp instanceof MyTrackersPanel) {
                     ((MyTrackersPanel) comp).refreshTheme();

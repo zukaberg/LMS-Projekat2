@@ -19,7 +19,6 @@ public class LoginForm extends JFrame {
     private JTextField emailField;
     private UserDAO userDAO;
 
-    // Boje
     private final Color PRIMARY_COLOR = new Color(41, 128, 185);
     private final Color SUCCESS_COLOR = new Color(46, 204, 113);
     private final Color DANGER_COLOR = new Color(231, 76, 60);

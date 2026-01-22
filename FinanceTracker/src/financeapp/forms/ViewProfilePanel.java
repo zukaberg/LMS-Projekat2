@@ -51,10 +51,10 @@ public class ViewProfilePanel extends JPanel {
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(20, 10, 20, 10);  // <--- Dodaj više razmaka
+        gbc.insets = new Insets(20, 10, 20, 10);
 
         avatarLabel = new JLabel();
-        avatarLabel.setHorizontalAlignment(SwingConstants.CENTER);  // <--- Centriraj
+        avatarLabel.setHorizontalAlignment(SwingConstants.CENTER);
         updateAvatar();
         contentPanel.add(avatarLabel, gbc);
 
@@ -120,7 +120,6 @@ public class ViewProfilePanel extends JPanel {
             }
         }
 
-        // Default avatar sa inicijalima
         avatarLabel.setIcon(AvatarUtil.createAvatarIcon(currentUser.getUsername(), 150));  // 120 -> 150
     }
 

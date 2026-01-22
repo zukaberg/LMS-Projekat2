@@ -82,7 +82,6 @@ public class MealDAO {
         return list;
     }
 
-    // **STATISTIKE - Današnji unos**
     public int getTodayCalories(String userId) {
         String today = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
         int total = 0;
